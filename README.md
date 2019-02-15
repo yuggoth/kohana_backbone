@@ -1,2 +1,4 @@
 # kohana_backbone
-старенькое
+
+front в папке \public\js\app
+back в папке \application
