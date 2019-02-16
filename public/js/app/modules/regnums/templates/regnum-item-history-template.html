@@ -1,0 +1,18 @@
+<tr>
+<td><%= date %> (<%= editor %>) </td>
+<td><%= company %></td>
+<td><%= department %></td>
+<td><%= face %></td>
+<td>
+<a target="_blank" href="/report/forma1/1">Со склада</a><br>
+</td>
+</tr>
+<% if (items.length) { %>
+<tr><td colspan="5">
+<% _.each(items, function(item){ %>
+<%= item.action %> <a target="_blank" href="/equipment/view/<%= item.id %>"><%= item.name %> <% if (item.serial_number) { %>(<%= item.serial_number %>)<% } %></a> <% if (item.reason) { %>по причине <%= item.reason %><% } %> <br />
+<% }); %>
+</td>
+</tr>
+<% } %>
+

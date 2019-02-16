@@ -1,0 +1,4 @@
+<td><%= date %> (<%= editor %>) <% if (status == '0') {%>прикреплено к <a href="/regnum/view/<%= registration_number_id %>"><%= registration_number_id %></a><% } %><% if (status == '1') {%>откреплено от <a href="/regnum/view/<%= registration_number_id %>"><%= registration_number_id %></a><% } %><% if (status == '2') { %>списано от <a href="/regnum/view/<%= registration_number_id %>"><% registration_number_id %></a><% } %></td>
+<td><%= department %></td>
+<td><%= face %></td>
+<td><%= reason %></td>

@@ -1,0 +1,10 @@
+<p><span class="table_zakaz_label" style="margin-right:20px">Компания</span> 
+<span id="company_collection"></span>
+<span class="table_zakaz_label" style="margin-left:60px; margin-right:20px">Дата счета</span> <input type="text" class="datepicker order_invoice_date" name="invoice_date" value="<% if (model.invoice_date) { %><%= model.invoice_date %><% } %>" style="width:150px" /><span class="data_span_cont"><span class="data_span"></span></span>
+<span class="table_zakaz_label" style="margin-left:60px; margin-right:20px">Номер счета</span> <input type="text" class="order_invoice_number" value="<%= model.invoice_number %>" style="width:200px" /></p>
+<p>
+<p><span class="table_zakaz_label" style="margin-right:14px">Поставщик</span> <input type="hidden" name="supplier" class="order_supplier" value='<% if (model.supplier) { %><%= model.supplier %><%} else {%>0<% } %>' /><input type="text" id="supplier" class="order_new_supplier" value='<% if (model.supplier) { %><%= model.new_supplier %><%} else {%>0<% } %>' name="new_supplier" style="width:192px">
+
+<span class="table_zakaz_label" style="margin-left:56px; margin-right:15px;">Дата заявки</span> <input type="text" name="request_date" class="datepicker order_request_date" value="<% if (model.request_date) { %><%= model.request_date %><% } %>" style="width:150px" /><span class="data_span_cont"><span class="data_span"></span></span>
+<span class="table_zakaz_label" style="margin-left:55px; margin-right:15px;">Номер заявки</span> <input type="text" class="order_request_number" value="<%= model.request_number %>" style="width:200px" />
+</p>

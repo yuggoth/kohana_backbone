@@ -1,0 +1,50 @@
+<div id="order-edit-template" class="site_block" style="display:none">
+<form method="post" action="/orders/add">
+<div class="search">
+<div class="search_in">Добавить заказ</div>
+
+<div id="zakaz_form">
+</div>
+<div class="h10"></div>
+<div class="h10"></div>
+<div class="table_zakaz_title">Позиции заказа</div>
+<div id="table_zakaz">
+
+<a class="add add_to_zakaz_table" title="Добавить"></a> 
+</div>
+<div class="h10"></div>
+<button class="order_save_button">Сохранить</button>
+
+</div>
+<div id="order_buhdoc_container">
+<div style="height:70px;"></div>
+<div class="search">
+<div class="search_in">Документы</div>
+<p style="margin-left:70px">Отметьте галочками пришедшие позиции заказа</p> 
+<div id="order_buhdoc"></div>
+<div class="h10"></div>
+<button class="order_prihod_button">Приход</button>
+</div>
+</div>
+</form>
+</div>
+<div id="orders-template" class="site_block" style="display:none">
+<div class="search">
+<div class="search_in">Поиск заказов</div>
+<form method="get" action="/orders/">
+<p>Номер счета <input type="text" style="margin:0px 30px 0px 10px" value="" name="invoice_number"> 
+Дата счета <input type="text" style="margin:0px 0px 0px 10px" value="" class="datepicker" name="invoice_date" id="dp1374630844905"><span class="data_span_cont"><span class="data_span"></span></span>
+</p>
+<input type="checkbox" style="margin:10px 10px 0px 0px;" checked="checked" name="all_orders" value="1">Показывать все заказы
+<input type="submit" value="Найти" style="margin-left:105px">
+</form>
+</div>
+<div class="h10"></div>
+<div class="h10"></div>
+<table class="table_index">
+<tr class="table_index_title">
+<td>Дата счета</td><td>Номер счета</td><td>Поставщик</td><td>Заказчик</td><td>Номер заявки</td><td>Дата заявки</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>

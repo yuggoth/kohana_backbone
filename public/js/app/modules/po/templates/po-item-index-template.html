@@ -1,0 +1,5 @@
+<td class=""><a href="/po/view/<%= id %>" class="order_edit"></a><% if (status === '1') { %><span class="label label-important">Свободно</span> <% } %><% if (status === '2') { %><span class="label">Списано</span> <% } %><%= id %></td>
+<td class=""><%= name %></td>
+<td class=""><%= equipment_type %></td>
+<td class=""><% if (status === '0') { %><%= department %><% } %></td>
+<td class=""><%= face %></td>

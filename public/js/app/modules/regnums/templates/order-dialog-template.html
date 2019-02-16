@@ -1,0 +1,7 @@
+<p><strong>Номер заказа:</strong> <%= invoice_number %></p>
+<p><strong>Дата заказа:</strong> <%= invoice_date %></p>
+<p><strong>Номер заявки:</strong> <%= request_number %></p>
+<p><strong>Дата заявки:</strong> <%= request_date %></p>
+<p><strong>Поставщик:</strong> <%= new_supplier %></p>
+<p><strong>Компания:</strong> <%_.each(companies_data, function(comp){ if (comp.id === company) {%><%= comp.name %><%}}) %></p>
+<p><a href="#/orders/view/<%= id %>">перейти на страницу заказа</a></p>

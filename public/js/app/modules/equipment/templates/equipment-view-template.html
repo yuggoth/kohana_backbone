@@ -1,0 +1,28 @@
+<div class="search">
+<div class="search_in">Оборудование № <%= id %></div>
+<p><label class="buh_doc_label">Наименование</label> <%= name %></p>
+<% if (serial_number) { %><p><label class="buh_doc_label">Серийный номер</label> <%= serial_number %></p><% } %>
+<p><label class="buh_doc_label">Класс оборудования</label> <%= equipment_type %></p>
+<% if (ispo == '1') { %>
+<p><label class="buh_doc_label">№ сублицензионного договора</label> <%= sublicensing_contract %></p>
+<br />
+<p><label class="buh_doc_label">Уникальный № лицензии</label> <%= unique_license_number %></p>
+<% } %>
+<p style="padding-left:200px"><a href="#/orders/view/<%= order_id %>">Информация о заказе</a></p>
+<p style="padding-left:200px"><% if (registration_number_id !== '0') { %><a href="#/regnum/view/<%= registration_number_id %>">Информация об учетной единице</a><% } else { if(status === '2') { %>списано<% } else { %>сейчас свободно<% } } %></p>
+<div class="clear"></div>
+</div>
+<div class="h10"></div>
+<div class="h10"></div>
+<div class="h10"></div>
+<div class="h10"></div>
+<div class="h10"></div>
+<div class="h10"></div>
+<div class="h10"></div>
+<div class="search" id="history">
+<div class="search_in">История</div>
+<table class="table_content">
+</table>
+
+<div class="clear"></div>
+</div>

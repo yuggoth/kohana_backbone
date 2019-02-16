@@ -1,0 +1,41 @@
+<div class="search">
+<div class="search_in">Поиск оборудования</div>
+<form method="get" action="/equipment/">
+<p>Наименование <input type="text" id="equipment_name" style="margin:0px 30px 0px 10px; width:290px" value="" name="equipment_name"> 
+Класс <select name="equipment_type" id="equipment_type" style="margin:0px 30px 0px 10px;">
+<option value="0">- не важно - </option>
+<option value="1">Системный блок</option>
+<option value="2">Монитор</option>
+<option value="3">Клавиатура</option>
+<option value="4">Мышь</option>
+<option value="5">Ноутбук</option>
+<option value="6">Сетевое оборудование</option>
+<option value="7">Расходные материалы</option>
+<option value="8">Принтеры и МФУ</option>
+<option value="9">Оргтехника</option>
+<option value="10">ПО</option>
+<option value="11">Материалы для СКС</option>
+<option value="12">ИБП</option>
+<option value="13">Телефоны</option>
+<option value="14">Накопители информации</option>
+<option value="15">Акссесуары</option>
+<option value="16">Оборудование</option>
+<option value="17">Серверное оборудование</option>
+<option value="18">Планшетный компьютер</option>
+</select>
+Серийный номер <input type="text" style="margin:0px 30px 0px 0; width:200px" value="" name="equipment_serial_number"> 
+</p>
+<input type="checkbox" style="margin:10px 10px 0px 0px;" id="all_otkr" name="free_reg_numb" value="1">В том числе и свободные
+<input type="checkbox" style="margin:10px 10px 0px 50px;" id="all_spis" name="spis_reg_numb" value="1">В том числе и списанные
+</form>
+</div>
+<div class="h10"></div>
+<div class="h10"></div>
+<table class="table_index" id="equipment_table">
+<tr class="table_index_title">
+<td>Учетная единица</td><td>Наименование</td><td>Класс оборудования</td><td>Отдел</td><td>Ответственное лицо</td>
+</tr>
+</table>
+<div class="h10"></div>
+<div class="h10"></div>
+<div id="pagination"></div>

@@ -1,0 +1,103 @@
+<script>
+  var roles_data = <?php echo json_encode($roles); ?>;
+  var companies_data = <?php echo json_encode($companies); ?>;
+  var eqtypes_data = <?php echo json_encode($eqtypes); ?>;
+</script>
+
+<script src="/public/js/orders.js"></script>
+
+<!-- Шаблон позиции заказа -->
+<script type="text/template" id="item-template">
+<input type="checkbox" class="input_prihod" />
+<span class="table_zakaz_label" style="display:block;">Наименование</span>
+<input type="text" class="table_zakaz_ajax_get position_name" value="<%= model.name %>" />
+<span class="equipment-collection"></span> 
+
+<span class="serial-numbers-collection">
+</span><p style="padding-left:360px;"><span class="table_zakaz_label">Количество</span> <input type="text" style="width:70px" class="position_count" value="<%= model.count %>" /> <span class="table_zakaz_label" style="margin-left:40px;">Сумма</span> <input type="text" style="width:150px;" class="position_summ" value="<%= model.summ %>" />
+<div class="clear"></div>
+<span class="is_po"><input type="checkbox" value="1"> ПО</span> <span class="is_warranty"><input type="checkbox" value="1"> Гарантия</span>
+</p>
+<a class="copy copy_to_zakaz_table" title="Копировать"></a>
+<a class="del delete_to_zakaz_table"></a> 
+</script>
+
+<!-- Шаблон заказа на главной -->
+<script type="text/template" id="order-template">
+<td class=""><a title="Смотреть / редактировать" class="order_edit" href="/orders/#view/<%= id %>"></a><span class="label">Приход</span> <%= invoice_date %></td>
+<td class=""><%= invoice_number %></td>
+<td class=""><%= supplier_id %></td>
+<td class=""><%= company["name"] %></td>
+<td class=""><%= request_number %></td>
+<td class=""><%= request_date %></td>
+</script>
+
+<!-- Шаблон вида оборудования в селекте -->
+<script type="text/template" id="type-template">
+<%= name %>
+</script>
+
+<!-- Шаблон компании в селекте -->
+<script type="text/template" id="company-template">
+<%= name %>
+</script>
+
+<!-- Шаблон коллекции компаний в селекте -->
+<script type="text/template" id="company-collection-template">
+</script>
+
+<!-- Шаблон коллекции видов оборудований в селекте -->
+<script type="text/template" id="eqtypes-collection-template">
+</script>
+
+<!-- Шаблон заказа на неглавной -->
+<script type="text/template" id="data-template">
+<p><span class="table_zakaz_label" style="margin-right:20px">Компания</span> 
+<span id="company_collection"></span>
+<span class="table_zakaz_label" style="margin-left:60px; margin-right:20px">Дата счета</span> <input type="text" class="datepicker order_invoice_date" value="<%= model.invoice_date %>" style="width:150px" /><span class="data_span_cont"><span class="data_span"></span></span>
+<span class="table_zakaz_label" style="margin-left:60px; margin-right:20px">Номер счета</span> <input type="text" class="order_invoice_number" value="<%= model.invoice_number %>" style="width:200px" /></p>
+<p>
+<p><span class="table_zakaz_label" style="margin-right:14px">Поставщик</span> <input type="hidden" class="order_supplier" value='<% if (model.supplier_id) { %><%= model.supplier_id %><%} else {%>0<% } %>' /><input type="text" id="supplier" class="order_new_supplier" value='<% if (model.supplier_id) { %><%= model.supplier %><%} else {%>0<% } %>' style="width:192px">
+
+<span class="table_zakaz_label" style="margin-left:56px; margin-right:15px;">Дата заявки</span> <input type="text" class="datepicker order_request_date" value="<%= model.request_date %>" style="width:150px" /><span class="data_span_cont"><span class="data_span"></span></span>
+<span class="table_zakaz_label" style="margin-left:55px; margin-right:15px;">Номер заявки</span> <input type="text" class="order_request_number" value="<%= model.request_number %>" style="width:200px" />
+</p>
+</script>
+
+<!-- Шаблон полей для ПО -->
+<script type="text/template" id="position-is-po">
+<span class="table_zakaz_label">Количество лицензий</span> <input type="text" style="width:70px;" value="<%= count_licenses %>" class="position_count_licenses" />
+<span class="table_zakaz_label" style="margin-left:40px;">№ сублицензионного договора</span> <input type="text" style="width:200px;" value="<%= sublicensing_contract %>" class="position_sublicensing_contract" />
+<span class="table_zakaz_label" style="margin-left:40px;">Уникальный № лицензии</span> <input type="text" style="width:200px;" value="<%= unique_license_number %>" class="position_unique_license_number" />
+</script>
+
+<!-- Шаблон полей для гарантии -->
+<script type="text/template" id="position-is-warranty">
+<span class="table_zakaz_label">Номер гарантии</span> <input type="text" style="width:250px;" value="<%= warranty_number %>" class="position_warranty_number" />
+<span class="table_zakaz_label" style="margin-left:40px;">Дата</span> <input type="text" style="width:200px;" class="datepicker position_warranty_date" value="<%= warranty_date %>" /><span class="data_span_cont"><span class="data_span"></span></span>
+<span class="table_zakaz_label" style="margin-left:40px;">Срок</span> <input type="text" style="width:263px;" value="<%= warranty_time %>" class="position_warranty_time" />
+</script>
+
+<!-- Шаблон для серийного номера -->
+<script type="text/template" id="serial-number-template">
+<span class="table_zakaz_label">Серийный номер</span> 
+<input type="text" style="width:235px;" value="<%= serial_number %>" />
+</script>
+
+<!-- Шаблон для бухгалтерских документов заказа -->
+<script type="text/template" id="order-buhdoc-template">
+<p><label class="buh_doc_label">Дата</label> <input type="text" name="date" class="datepicker" value="<%= date %>" style="width:200px"/><span class="data_span_cont"><span class="data_span"></span></span></p>
+<p><label class="buh_doc_label">Счет-фактура</label> <input name="invoice" value="<%= invoice %>" type="text" style="width:223px"/></p>
+<p><label class="buh_doc_label">Расх. накладная</label> <input name="sales_invoice" value="<%= sales_invoice %>" type="text" style="width:223px"/></p>
+<p><label class="buh_doc_label">№ плат. документа</label> <input name="number_platej_document" value="<%= number_platej_document %>" type="text" style="width:223px"/></p>
+<p><label class="buh_doc_label">Дата плат. документа</label> <input name="date_platej_document" value="<%= date_platej_document %>" type="text" class="datepicker" style="width:200px"/><span class="data_span_cont"><span class="data_span"></span></span></p>
+</script>
+
+<!-- Шаблон для галочки для того чтоб отметить пришедшие позиции заказа -->
+<script type="text/template" id="prihod-position-input-template">
+<p><%= model %></p>
+</script>
+
+<script type="text/template" id="error-view-template">
+<p><%= model %></p>
+</script>

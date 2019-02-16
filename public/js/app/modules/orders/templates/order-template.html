@@ -1,0 +1,8 @@
+<td class=""><a title="Смотреть / редактировать" class="order_edit"></a>
+<% if(status == '1') { %><span class="label">Приход</span> <% } %>
+<%= invoice_date %></td>
+<td class=""><%= invoice_number %></td>
+<td class=""><%= supplier_id %></td>
+<td class=""><%= company %></td>
+<td class=""><%= request_number %></td>
+<td class=""><% if (request_date) { %><%= request_date %><% } %></td>

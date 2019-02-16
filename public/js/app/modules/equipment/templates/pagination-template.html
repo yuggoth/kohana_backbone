@@ -1,0 +1,51 @@
+<div class="breadcrumb">
+
+          <% if (firstPage != currentPage) { %>
+            <a href="#" class="serverfirst"><<<<</a>
+          <% } %>
+          
+          <span class="divider">/</span>
+          
+          <% if (currentPage > firstPage) { %>
+            <a href="#" class="serverprevious">< Предыдущая</a>
+          <% }else{ %>
+            <span></span>
+          <% }%>
+          
+          
+          <span class="cell">
+          <% for(p=1;p<=totalPages;p++){
+          %>
+            <% if (currentPage == p) { %>
+              <span class="page selected"><%= p %></span>
+            <% } else { %>
+              <a href="#" class="page"><%= p %></a>
+            <% } %>
+          <%
+          }%>
+
+          <span class="divider">/</span>
+
+
+
+          <% if (currentPage < totalPages) { %>
+            <a href="#" class="servernext">Следующая ></a>
+          <% } %>
+
+          <span class="divider">/</span>
+          
+          <% if (lastPage != currentPage) { %>
+            <a href="#" class="serverlast">>>>></a>
+          <% } %>
+
+
+          <span class="cell first records">
+            Страница: <span class="current"><%= currentPage %></span>
+            из
+            <span class="total"><%= totalPages %></span>
+          </span>
+
+      <span class="divider">/</span>
+
+          </span>
+</div>

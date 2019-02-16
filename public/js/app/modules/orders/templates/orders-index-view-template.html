@@ -1,0 +1,17 @@
+<div class="search">
+<div class="search_in">Поиск заказов</div>
+<form method="get" action="/orders/">
+<p>Номер счета <input type="text" style="margin:0px 30px 0px 10px" value="" id="invoice_number"> 
+Дата счета <input type="text" style="margin:0px 0px 0px 10px" value="" class="datepicker" id="invoice_date"><span class="data_span_cont"><span class="data_span"></span></span>
+</p>
+<input type="checkbox" style="margin:10px 10px 0px 0px;" id="all_orders" value="1">Показывать все заказы
+
+</form>
+</div>
+<div class="h10"></div>
+<div class="h10"></div>
+<table class="table_index" id="table_orders_index">
+</table>
+<div class="h10"></div>
+<div class="h10"></div>
+<div id="pagination"></div>

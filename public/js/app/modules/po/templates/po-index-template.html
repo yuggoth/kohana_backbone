@@ -1,0 +1,38 @@
+<div class="search">
+<div class="search_in">Поиск ПО</div>
+<form method="get" action="/po/">
+<p>Наименование <input type="text" style="margin:0px 30px 0px 10px; width:300px" value="" name="equipment_name"> 
+Класс оборудования <select name="equipment_type" style="margin:0px 30px 0px 10px;">
+<option value="0">- не важно - </option>
+<option value="1">Системный блок</option>
+<option value="2">Монитор</option>
+<option value="3">Клавиатура</option>
+<option value="4">Мышь</option>
+<option value="5">Ноутбук</option>
+<option value="6">Сетевое оборудование</option>
+<option value="7">Расходные материалы</option>
+<option value="8">Принтеры и МФУ</option>
+<option value="9">Оргтехника</option>
+<option value="10">ПО</option>
+<option value="11">Материалы для СКС</option>
+<option value="12">ИБП</option>
+<option value="13">Телефоны</option>
+<option value="14">Накопители информации</option>
+<option value="15">Акссесуары</option>
+<option value="16">Оборудование</option>
+<option value="17">Серверное оборудование</option>
+<option value="18">Планшетный компьютер</option>
+</select>
+</p>
+<input type="checkbox" style="margin:10px 10px 0px 0px;" name="free_reg_numb" value="1">В том числе и свободные
+<input type="checkbox" style="margin:10px 10px 0px 50px;" checked="checked" name="spis_reg_numb" value="1">В том числе и списанные
+<input type="submit" value="Найти" style="margin-left:105px">
+</form>
+</div>
+<div class="h10"></div>
+<div class="h10"></div>
+<table class="table_index" id="po_table">
+<tr class="table_index_title">
+<td>Учетная единица</td><td>Наименование</td><td>Класс оборудования</td><td>Отдел</td><td>Ответственное лицо</td>
+</tr>
+</table>

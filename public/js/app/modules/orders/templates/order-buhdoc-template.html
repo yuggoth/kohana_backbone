@@ -1,0 +1,14 @@
+<div style="height:70px;"></div>
+<div class="search">
+<div class="search_in">Документы</div>
+<p style="margin-left:70px">Отметьте галочками пришедшие позиции заказа</p> 
+<div id="order_buhdoc">
+<p><label class="buh_doc_label">Дата</label> <input type="text" name="date" class="datepicker order_buhdoc_date" value="<% if (date) { %><%= date %><% } %>" style="width:200px"/><span class="data_span_cont"><span class="data_span"></span></span></p>
+<p><label class="buh_doc_label">Счет-фактура</label> <input name="invoice" value="<%= invoice %>" class="order_buhdoc_invoice" type="text" style="width:223px"/></p>
+<p><label class="buh_doc_label">Расх. накладная</label> <input name="sales_invoice" class="order_buhdoc_sales_invoice" value="<%= sales_invoice %>" type="text" style="width:223px"/></p>
+<p><label class="buh_doc_label">№ плат. документа</label> <input name="number_platej_document" class="order_buhdoc_number_platej_document" value="<%= number_platej_document %>" type="text" style="width:223px"/></p>
+<p><label class="buh_doc_label">Дата плат. документа</label> <input name="date_platej_document" class="order_buhdoc_date_platej_document datepicker" value="<% if (date_platej_document) { %><%= date_platej_document %><% } %>" type="text" style="width:200px"/><span class="data_span_cont"><span class="data_span"></span></span></p>
+</div>
+<div class="h10"></div>
+<button class="order_prihod_button">Приход</button>
+</div>
